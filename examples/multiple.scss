@@ -1,0 +1,21 @@
+.custom-div {
+  &:hover {
+    --hover: ;
+  }
+
+  &:focus {
+    --focus: ;
+  }
+
+  &:disabled {
+    --active: ;
+  }
+
+  /*
+   * IF you have more than two variables you have to check both of them.
+   * So in the first case it is: if not hover and not active then blue so the background will be blue if it's disabled.
+   * As told it's problematic if both hover and focus are active,
+   * but this is just an example and I would never use this for such simple things because it to much of an overkill.
+   */
+  background-color: var(--hover, var(--active, blue)) var(--hover, var(--focus, red)) var(--focus, var(--active, green));
+}

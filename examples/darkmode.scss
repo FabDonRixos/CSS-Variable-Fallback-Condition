@@ -1,0 +1,39 @@
+html.light {
+  --is-lightmode: ;
+
+  --primary: #cfcfcf;
+  --secondary: #1f1fff;
+
+  --primary-text: #000;
+  --secondary-text: #061623;
+
+  /* ETC. */
+}
+
+html.dark {
+  --is-darkmode: ;
+
+  --primary: #353535;
+  --secondary: #3d3dff;
+
+  --primary-text: #fff;
+  --secondary-text: #9ac2f6;
+
+  /* ETC. */
+}
+
+// Now you can use the variables "is-lightmode" and "is-darkmode"
+.custom-div {
+  background-color: var(--primary);
+
+  // If-Else structure (in lightmode it uses the secondary-text and in darkmode the primary-text)
+  color: var(--is-darkmode, var(--secondary-text)) var(--is-lightmode, var(--primary-text));
+}
+
+// other use-case (darken the border-color 10% in lightmode and lighten it 20% in darkmode)
+.error-div {
+  $error: #ff3737;
+
+  background-color: $error;
+  border: var(--is-darkmode, darken($error, 10%)) var(--is-lightmode, lighten($error, 20%)) 1px solid;
+}
